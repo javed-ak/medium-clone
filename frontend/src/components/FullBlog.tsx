@@ -7,7 +7,7 @@ export const FullBlog = ({blog} : {blog: BlogProps} ) => {
     <div>
         <Appbar />
         <div className="p-5 lg:p-20 lg:flex">
-            <div className="flex flex-col border-b pb-10 lg:border-none lg:w-2/3 pr-10 gap-2">
+            <div className="flex flex-col border-b pb-10 lg:border-none lg:w-2/3 lg:pr-10 gap-2">
                 <div className="text-xl lg:text-5xl font-bold">
                     {blog.title}
                 </div>
