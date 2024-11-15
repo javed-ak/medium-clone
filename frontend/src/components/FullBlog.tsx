@@ -1,10 +1,14 @@
 import { BlogProps } from "../hooks";
 import { Appbar } from "./Appbar";
 import { Avatar } from "./BlogCard"
+import { motion, useScroll } from "motion/react";
 
 export const FullBlog = ({blog} : {blog: BlogProps} ) => {
+    const { scrollYProgress } = useScroll();
+
     return (
     <div>
+        <motion.div className="fixed top-0 left-0 h-1 w-full bg-green-500 origin-left z-50" style={{ scaleX: scrollYProgress }}/>
         <Appbar />
         <div className="p-5 lg:p-20 lg:flex">
             <div className="flex flex-col border-b pb-10 lg:border-none lg:w-2/3 lg:pr-10 gap-2">
