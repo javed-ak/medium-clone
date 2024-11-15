@@ -6,9 +6,9 @@ export const FullBlog = ({blog} : {blog: BlogProps} ) => {
     return (
     <div>
         <Appbar />
-        <div className="p-20 flex">
-            <div className="flex flex-col w-2/3 pr-10 gap-2">
-                <div className="text-5xl font-bold">
+        <div className="p-5 lg:p-20 lg:flex">
+            <div className="flex flex-col border-b pb-10 lg:border-none lg:w-2/3 pr-10 gap-2">
+                <div className="text-xl lg:text-5xl font-bold">
                     {blog.title}
                 </div>
                 <div className="text-slate-500 text-sm">
@@ -18,7 +18,7 @@ export const FullBlog = ({blog} : {blog: BlogProps} ) => {
                     {blog.content}
                 </div>
             </div>
-            <div className="w-1/3">
+            <div className="pt-10 lg:w-1/3 lg:pt-0">
                 Author
                 <div className="flex justify-center items-center gap-3 mt-3">
                     <div>
