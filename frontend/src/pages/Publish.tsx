@@ -3,15 +3,19 @@ import { Appbar } from "../components/Appbar"
 import { BACKEND_URL } from "../config"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { toast, ToastContainer } from "react-toastify"
+import 'react-toastify/dist/ReactToastify.css';
 
 export const Publish = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
+    const [loading, setLoading] = useState(false)
     const navigate = useNavigate();
 
     return (
         <div>
             <Appbar />
+            <ToastContainer />
             <div className="flex flex-col items-center">
                 <div className="">
                     <div className="text-6xl mt-5">
@@ -26,16 +30,32 @@ export const Publish = () => {
                     </div>
                     <div className="text-right mt-5">
                         <button onClick={async () => {
-                            const response = await axios.post(`${BACKEND_URL}/api/v1/blog`, {
-                                title,
-                                content
-                            }, {
-                                headers: {
-                                    Authorization: localStorage.getItem('token')
-                                }
-                            });
-                            navigate(`blog/${response.data.id}`)
-                        }} className="ring ring-green-500 text-slate-50 bg-green-600 rounded-full font-bold px-5 py-1 hover:bg-slate-50 hover:text-green-500">Publish Post</button>
+                            try{
+                                setLoading(true)
+                                await axios.post(`${BACKEND_URL}/api/v1/blog`, {
+                                    title,
+                                    content
+                                }, {
+                                    headers: {
+                                        Authorization: localStorage.getItem('token')
+                                    }
+                                });
+                                navigate(`/blogs`)
+                            } catch (e) {
+                                setLoading(false)
+                                toast.error("Error While Publishing Post", {
+                                    position: "top-right",
+                                    autoClose: 3000,
+                                    hideProgressBar: false,
+                                    closeOnClick: true,
+                                    pauseOnHover: true,
+                                    draggable: true,
+                                    progress: undefined,
+                                  });
+                            }
+                        }} className="ring ring-green-500 text-slate-50 bg-green-600 rounded-full font-bold px-5 py-1 hover:bg-slate-50 hover:text-green-500">
+                            {loading ? 'Publishing...' : 'Publish Post'}
+                        </button>
                     </div>
                 </div>
             </div>

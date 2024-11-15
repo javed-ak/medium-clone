@@ -15,16 +15,6 @@ export const useBlog = ({ id } : { id:string }) => {
     const [loading, setLoading] = useState(true);
     const [blog, setBlog] = useState<BlogProps>();
 
-//     const getBlog = async () => {
-//         const response = await axios.get(`${BACKEND_URL}/api/v1/blog/${id}`, {
-//             headers: {
-//                 Authorization: localStorage.getItem('token')
-//             }
-//         })
-//         setBlog(response.data)
-//         setLoading(false)
-//     }
-
     useEffect(() => {
         // getBlog();
         axios.get(`${BACKEND_URL}/api/v1/blog/${id}`, {
