@@ -1,5 +1,6 @@
 import { Avatar } from "./BlogCard"
 import { Link } from "react-router-dom"
+import { motion } from 'motion/react'
 
 export const Appbar = () => {
     return (
@@ -11,7 +12,7 @@ export const Appbar = () => {
             </Link>
             <div className="flex gap-4 items-center">
                 <Link to={'/publish'}>
-                    <button className="ring ring-green-500 text-slate-50 bg-green-600 rounded-full font-bold px-5 py-1 hover:bg-slate-50 hover:text-green-500">New</button>
+                    <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }} className="ring ring-green-500 text-slate-50 bg-green-600 rounded-full font-bold px-5 py-1">New</motion.button>
                 </Link>
                 <Avatar name="Javed" size='big'/>
             </div>
