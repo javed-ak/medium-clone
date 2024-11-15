@@ -4,7 +4,7 @@ import { motion } from 'motion/react'
 
 export const Appbar = () => {
     return (
-        <div className="flex justify-between items-center bg-zinc-50 px-10 py-4 border-b sticky top-0">
+        <div className="flex justify-between items-center bg-zinc-50 px-10 py-4 border-b sticky top-0 z-20">
             <Link to={'/blogs'}>
                 <div className="font-bold text-xl">
                     Medium
