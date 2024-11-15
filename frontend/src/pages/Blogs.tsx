@@ -10,14 +10,12 @@ export default function Blogs() {
     return <div>
       <Appbar />
       <div className="flex justify-center">
-        <div>
-          <div className="h-screen flex flex-col justify-center items-center">
+          <div className="h-screen flex flex-col">
             <BlogSkeleton />
             <BlogSkeleton />
             <BlogSkeleton />
             <BlogSkeleton />
           </div>
-        </div>
     </div>
     </div>
   }

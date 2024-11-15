@@ -6,7 +6,7 @@ export const FullBlog = ({blog} : {blog: BlogProps} ) => {
     return (
     <div>
         <Appbar />
-        <div className="p-20  flex">
+        <div className="p-20 flex">
             <div className="flex flex-col w-2/3 pr-10 gap-2">
                 <div className="text-5xl font-bold">
                     {blog.title}
@@ -14,7 +14,7 @@ export const FullBlog = ({blog} : {blog: BlogProps} ) => {
                 <div className="text-slate-500 text-sm">
                     Posted on August 24, 2024
                 </div>
-                <div>
+                <div className="text-justify">
                     {blog.content}
                 </div>
             </div>
